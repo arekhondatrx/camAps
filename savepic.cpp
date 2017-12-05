@@ -34,22 +34,17 @@ void SavePic::save(int rect_x, int rect_y, int rect_w, int rect_h, string loc, s
 
 void SavePic::saveP(int rect_x, int rect_y, int rect_w, int rect_h, string loc, string type)
 {
-    if(rect_x < 0)
-    {
+   if(rect_x < 0)
         rect_x = 0;
-    }
+
    if(rect_y < 0)
-   {
         rect_y = 0;
-   }
+
     if(rect_x + rect_w  >= temp.cols)
-    {
         rect_x = temp.cols - rect_w - 1;
-    }
+
     if(rect_y + rect_h  >= temp.rows)
-    {
        rect_y = temp.rows - rect_h - 1;
-    }
 
     if(temp.empty() == false)
     {
@@ -71,11 +66,13 @@ void SavePic::saveHelper(Mat pic, string loc, string type)
          }
          else
          {
-             if(!pic.empty()){
+             if(!pic.empty())
+             {
              QImage image1 = QImage((uchar*) pic.data,  pic.cols,  pic.rows,  pic.step, QImage::Format_RGB888);
              QImageWriter writer(QString::fromStdString(this->loc));
              writer.write(image1);
-            }
+             }
+
              img_number++;
              return;
          }
