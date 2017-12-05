@@ -190,25 +190,17 @@ void PhotoViewer::setUi(Ui::MainWindow *ui)
 void PhotoViewer::incCntr()
 {
     if(cntr < list.size() - 1)
-    {
         cntr++;
-    }
     else
-    {
         cntr = 1;
-    }
 }
 
 void PhotoViewer::decCntr()
 {
     if(cntr > 1)
-    {
         cntr--;
-    }
     else
-    {
         cntr = list.size() - 1;
-    }
 }
 
 int PhotoViewer::getImageWidth()
@@ -274,24 +266,7 @@ void PhotoViewer::rt(Mat& src,int angle)
 
 void PhotoViewer::rt(int angle)
 {
-    cv::Point2f center(matImg.cols / 2.0, matImg.rows / 2.0);
-    cv::Mat rot = cv::getRotationMatrix2D(center, angle, 1.0);
-    cv::Rect bbox = cv::RotatedRect(center, matImg.size(), angle).boundingRect();
-    rot.at<double>(0, 2) += bbox.width / 2.0 - center.x;
-    rot.at<double>(1, 2) += bbox.height / 2.0 - center.y;
-    cv::warpAffine(matImg, matImg, rot, bbox.size());
-
-    if(matImg.rows > label_h && angle != 0)
-    {
-       float temp_size = float(label_h) / float(matImg.rows);
-        cv::resize(matImg,matImg,Size(matImg.cols * temp_size,label_h));
-    }
-
-    if(matImg.cols > label_w && angle != 0)
-    {
-       float temp_size = float(label_w) / float(matImg.cols);
-       cv::resize(matImg,matImg,Size(label_w,matImg.rows * temp_size));
-    }
+    rt(matImg,angle);
     matImgCopy = matImg.clone();
 }
 
