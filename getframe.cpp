@@ -39,7 +39,6 @@ GetFrame::~GetFrame()
 bool GetFrame::setAdrCapture(int nr)
 {
     cap.open(nr);   
-    QThread::msleep(1000);
     return cap.isOpened();
 }
 
@@ -117,14 +116,14 @@ void GetFrame::setCamName()
 
     for(int i = 0; i < 3; i++)
     {
-        found = cam_adr.find(".", found+1);
+        found = cam_adr.find(".", found + 1);
     }
     start = found + 1;
-    end = cam_adr.find(":", found+1);
+    end = cam_adr.find(":", found + 1);
 
     char temp[100] = "";
     size_t length;
-    length = cam_adr.copy(temp, end-start, start);
+    length = cam_adr.copy(temp, end - start, start);
     temp[length] = '\0';
 
     cam_name = "cam_" + (string)temp;

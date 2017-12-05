@@ -36,10 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->label_cams, SIGNAL(Mouse_Pos()), this, SLOT(Mouse_current_pos_cams()));// obsługa pozycji na etykecie label_cams (podgląd małych kamer)
     connect(ui->label, SIGNAL(Mouse_Pressed()), this, SLOT(Mouse_Pressed())); // obsługa wcisniecia na etykiete label
     connect(ui->label_cams, SIGNAL(Mouse_Pressed()), this, SLOT(Mouse_Pressed_cams())); // obsługa wcisniecia na etykiete label_cams
-    connect(ui->label, SIGNAL(Mouse_Double_Pressed()), this, SLOT(Mouse_D_Pressed()));
-    connect(ui->label_cams, SIGNAL(Mouse_Pos()), this, SLOT(Mouse_current_pos()));
-    connect(ui->label, SIGNAL(Mouse_Relase()), this, SLOT(Mouse_current_Relase()));
-    connect(ui->label, SIGNAL(Key_Is_Pressed()),this,SLOT(S_is_pressed()));
+    connect(ui->label, SIGNAL(Mouse_Double_Pressed()), this, SLOT(Mouse_D_Pressed()));// obsługa podwójnego wciśniecia na głównym widoku
+    connect(ui->label, SIGNAL(Mouse_Relase()), this, SLOT(Mouse_current_Relase()));// obsługa puszczenia myszy
+
 
     timer = new QTimer(this);
     timer2 = new QTimer(this);
