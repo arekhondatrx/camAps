@@ -5,8 +5,6 @@
 #include <QMessageBox>
 #include <QFileInfo>
 
-
-
 SavePic::~SavePic()
 {
 
@@ -16,12 +14,12 @@ void SavePic::save(int rect_x, int rect_y, int rect_w, int rect_h, string loc, s
 {
     if(rect_x + rect_w  >= temp.cols)
        rect_x = temp.cols - rect_w - 1;
+
     if(rect_y + rect_h  >= temp.rows)
        rect_y = temp.rows - rect_h - 1;
 
     if(!temp.empty())
     {
-
         temp = temp(Rect(rect_x,rect_y, rect_w, rect_h));
         loc +=cntr->getCurrent_time();
         saveHelper(temp,loc,type);
