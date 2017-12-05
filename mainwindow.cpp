@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     cams.initialize("config/c.txt");
 
   // cams.addCam("rtsp://admin:admin@10.10.110.3:554/Streaming/Channels/1");
-
   // cams.addCam(0);
 
 
@@ -221,7 +220,6 @@ void MainWindow::Mouse_D_Pressed()
     }
     else if(ui->radioButtonPic->isChecked())
     {
-        qDebug() << "Próba zapisu";
         SavePic saver(photo.getMatImg());
         photo.fillPoz(ui->label,&rect_x,&rect_y);
         saver.saveP(rect_x, rect_y, rect_w, rect_h, img_loc_t + photo.getName());
