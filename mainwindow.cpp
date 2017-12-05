@@ -11,6 +11,8 @@
 #define SMALL_CAM_WIDTH 90
 #define SMALL_CAM_HEIGHT 74
 #define TIME_SAVE_INFO_VIEW 9
+#define LABEL_WIDTH 995
+#define LABEL_HEIGHT 705
 
 
 
@@ -25,8 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     cams.initialize("config/c.txt");
 
   // cams.addCam("rtsp://admin:admin@10.10.110.3:554/Streaming/Channels/1");
-  // cams.addCam("rtsp://admin:admin@10.10.110.4:554/Streaming/Channels/1");
-  // cams.addCam(1);
+
   // cams.addCam(0);
 
 
@@ -80,8 +81,8 @@ void MainWindow::initializeVariable()
     rect_w = 0;
     rect_h = 0;
     click = 0;
-    initial_x_size = 995;
-    initial_y_size = 705;
+    initial_x_size = LABEL_WIDTH;
+    initial_y_size = LABEL_HEIGHT;
     perc_reszie = 0;
     save_info_cntr = TIME_SAVE_INFO_VIEW;
     l4x4 = false;
