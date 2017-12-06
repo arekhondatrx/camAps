@@ -155,14 +155,6 @@ Mat GetFrame::getOldFrame()
     return img;
 }
 
-Mat GetFrame::getOldFrame2()
-{
-    string temp_name = "temp\\" + cam_name + "\\" + cntr->getCurrent_time() + "0.jpg";
-    img = imread(temp_name);
-    if(!img.empty())
-        cvtColor(img, img, CV_BGR2RGB);
-    return img;
-}
 
 bool GetFrame::incIterator()
 {

@@ -34,7 +34,6 @@ public:
    void setCamName();
    void putFrame(Mat);
    Mat getOldFrame();
-   Mat getOldFrame2();
    bool incIterator();
    bool decIterator();
    Mat getImg() const;
