@@ -24,18 +24,18 @@ public:
     ~GetFrame();
 
 public:
-   bool setAdrCapture(int);
-   bool setAdrCapture(string);
-   void getCapture();
-   void resizePic(int, int);
+   bool setAdrCapture(int); // otwiera loklana kamere
+   bool setAdrCapture(string);// otwiera kamere IP
+   void getCapture(); // poniera ramke z buffora kamry
+   void resizePic(int, int); // zmienia rozmiar obrazu
    void resizePic(Mat, int, int);
-   void putRect(Mat ,int, int, int, int);
-   void setNamePic();
-   void setCamName();
-   void putFrame(Mat);
-   Mat getOldFrame();
-   bool incIterator();
-   bool decIterator();
+   void putRect(Mat ,int, int, int, int); // wrzyca na obraz prostokat
+   void setCamName(); // ustawia nazwe kamery
+   void putFrame(Mat); // wrzuca ramke do lokalnego buffora
+   Mat getOldFrame(); // pobiera rake z lokalnego bufora
+   bool incIterator();// inkrementuje iterator
+   bool decIterator();// deinkrementuje iterator
+   // setters and getters
    Mat getImg() const;
    void setImg(Mat t);
    int getImg_number() const;

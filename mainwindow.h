@@ -78,14 +78,13 @@ private slots:
     void on_get128_65_clicked();
 
 public:
-   void showCapture(Mat);
-   void showCapture(Mat, QLabel *);
-   void deleteFileInFolder(QString);
-   Mat addMiniView(Mat,Mat);
-   void initializeVariable();
-   void restScroll();
-   void keyPressEvent(QKeyEvent *ev);
-   void wheelEvent(QWheelEvent *ev);
+   void showCapture(Mat); // wyswietla obraz na Label
+   void showCapture(Mat, QLabel *);// wyswietla obraz na podanym Label
+   void deleteFileInFolder(QString); // usuwa folder
+   void initializeVariable(); // ustawianie zmiennych
+   void restScroll(); // resetuje niektóre zmienne po użyciu scrolla
+   void keyPressEvent(QKeyEvent *ev); // obsługa wsisniecia klawiatury
+   void wheelEvent(QWheelEvent *ev); // obsługa scrolla
 
 public:
     CamCollection cams;

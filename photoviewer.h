@@ -24,41 +24,39 @@ public:
     PhotoViewer(Ui::MainWindow *ui);
 
 public:
-    void getDirectory();
-    bool showImage(QLabel *);
-    int checkType();
-    void setUi(Ui::MainWindow *ui);
-    void putRect(QLabel *label,int rect_x, int rect_y, int rect_w, int rect_h);
-    void photoResize(QLabel *label,int rect_x, int rect_y, int rect_w, int rect_h);
+    void getDirectory(); // pobiera lokalizacje folderu skad maja byc pobierane zdjecia
+    bool showImage(QLabel *); // pokazuje obraz
+    int checkType(); // sprawdza czy obraz jest typu jpg
+    void setUi(Ui::MainWindow *ui); // setter
+    void putRect(QLabel *label,int rect_x, int rect_y, int rect_w, int rect_h); // wrzuca prostakat na zdjecie
+    void photoResize(QLabel *label,int rect_x, int rect_y, int rect_w, int rect_h); // zmienia obraz obrazu
     void photoResize2(QLabel *label,float perc);
-    void clearRect();
-    void incCntr();
-    void decCntr();
-    int getImageWidth();
-    int getImageHeight();
-    string getName();
-    void fillPoz(QLabel *, int *,int *);
-    Mat getMatImg() const;
-    void setMatImg(const Mat &value);
-    void roateR();
-    void roateL();
-    void checkSize(QLabel *label);
+    void clearRect(); // czysci prostakat z obrazu
+    void incCntr(); //inkrementacja iteratora
+    void decCntr(); // deinkrementacja iteratora
+    void fillPoz(QLabel *, int *,int *);   // dopasowuje zmienne do rozmiaru QLabel
+    void roateR(); // obraca obraz w Prawo
+    void roateL(); // obraza obraz w lewo
+    void rt(Mat& src,int angle); // funkcja pomocnicza do obrazania
+    void rt(int angle);
+    void show(QLabel * label); // wyswietla aktualny matImg
+
+    // setters and getters
+    int getAngle() const;
+    void setAngle(int value);
+    void setMatImgCopy(const Mat &value);
+    void setAngleR(int value);
+    void setAngleL(int value);
     float getImg_per() const;
     int getImg_width_resize() const;
     int getImg_height_resize() const;
+    int getImageWidth();
+    int getImageHeight();
+    string getName();
+    Mat getMatImg() const;
+    void setMatImg(const Mat &value);
+    void checkSize(QLabel *label);
     void setPathh(const QString &value);
-    void rt(Mat& src,int angle);
-    void rt(int angle);
-    void show(QLabel * label);
-
-    int getAngle() const;
-    void setAngle(int value);
-
-    void setMatImgCopy(const Mat &value);
-
-    void setAngleR(int value);
-
-    void setAngleL(int value);
 
 private slots:
 

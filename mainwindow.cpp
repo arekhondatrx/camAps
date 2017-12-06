@@ -808,14 +808,7 @@ void MainWindow::deleteFileInFolder(QString path)
     }
 }
 
-// dodawanie podgladu kolejnej kamery,  w sumie nie wiadomo czy dobrze smiga, bo sprawdzone tylko na dwoch kamerach
-Mat MainWindow::addMiniView(Mat old, Mat neww)
-{
-    Mat temp = old.clone();
-    cv::resize(old, old, Size(2 * old.cols, old.rows));
-    hconcat(temp, neww, old);
-    return old;
-}
+
 
 
 void MainWindow::restScroll()

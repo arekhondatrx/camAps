@@ -30,16 +30,16 @@ public:
     ~CamCollection();
 
 public:
-    void initialize(string);
-    bool addCamLocal(int);
-    bool addCamIP(string);
-    Mat getViewFromCam(list<GetFrame>::iterator, bool, int = 0, int = 0);
-    void setMainViewIT(int);
-    void msg(QString s);
+    void initialize(string); // wczytuje z pliku c.txt adresy kamer i je uruchamia
+    bool addCamLocal(int); // uruchamia lokalna kmaere
+    bool addCamIP(string); // uruchamia kamere IP
+    Mat getViewFromCam(list<GetFrame>::iterator, bool, int = 0, int = 0); // zwraca aktualna ramke obrazu z kamer na ktora wskazuje iterator
+    void setMainViewIT(int); // ustawia iterator na wybranej pozycji
+    void msg(QString s); // wyswietla komunikata podany jako argument
 
 private:
-    int isUSB_cam(string);
-    int localCamNr(string adr);
+    int isUSB_cam(string); // sprawdza typ kamer USB/IP
+    int localCamNr(string adr); // pobiera nr. kmaery lokalnej
 
 public:
     list<GetFrame> cams;

@@ -15,13 +15,13 @@ public:
     PicFrame();
     ~PicFrame();
 
-public:
-
-    cv::Mat getImage(){return img;}
-    void GetTime();
+public:    
+    void GetTime(); // pobiera aktualny czas, i tworzy z niego nazwe
+    // getters and setters
     void putImage(cv::Mat t){img = t;}
     std::string getCurrent_time() const;
     void setCurrent_time(const std::string &value);
+    cv::Mat getImage(){return img;}
 
 private:
     std::string current_time;

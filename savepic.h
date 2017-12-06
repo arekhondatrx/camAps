@@ -21,7 +21,7 @@ public:
     ~SavePic();
 
 public:
-    void save(int rect_x, int rect_y, int rect_w, int rect_h, string loc, string = ".jpg");
+    void save(int rect_x, int rect_y, int rect_w, int rect_h, string loc, string = ".jpg");//zapisuje obraz do pliku jpg
     void saveP(int rect_x, int rect_y, int rect_w, int rect_h, string loc, string = ".jpg");
     void saveHelper(Mat pic, string loc, string type);
 

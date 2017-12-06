@@ -14,10 +14,10 @@ public:
     ~WriteToFile();
 
 public:
-    void append(string element);
-    void write(string element);
-    void clear();
-    void setLoc(string loc);
+    void append(string element); // dopisuje tekst do pliku
+    void write(string element); // wpisuje tekst do pliku
+    void clear(); // czysci plik
+    void setLoc(string loc); // pobiera lokalizacje pliku
 
 private:
     bool checkExistingElement(string element);
