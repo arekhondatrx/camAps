@@ -149,41 +149,6 @@ void GetFrame::putFrame(Mat frame)
     cntr--;
 }
 
-void GetFrame::putFrame2(Mat frame)
-{
-    if(buffor_counter > BUFFOR_SIZE)
-    {
-       buffor_counter--;
-       current_buffor_size = buffor_counter;
-       cntr = buffor1.begin();
-       string temp_name = "temp\\" + cam_name + "\\" + cntr->getCurrent_time() + "0.jpg";
-       remove(temp_name.c_str());
-       buffor1.pop_front();
-    }
-
-    QString path = "temp\\" + QString::fromStdString(cam_name);
-
-    if(QDir(path).exists() == false)
-    {
-        qDebug() << "nie istnieje";
-        QDir().mkdir(path);
-    }
-
-    PicFrame temp;
-    temp.GetTime();
-    buffor1.push_back(temp);
-    cntr = buffor1.end();
-    buffor_counter++;
-    current_buffor_size++;
-    cntr--;
-
-    path = path + "\\" + QString::fromStdString(cntr->getCurrent_time());
-    SavePic saver;
-
-    if(frame.empty() == false)
-        saver.saveHelper(frame, path.toUtf8().constData(), ".jpg");
-}
-
 Mat GetFrame::getOldFrame()
 {
     img = cntr->getImage().clone();

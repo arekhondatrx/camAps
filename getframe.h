@@ -33,7 +33,6 @@ public:
    void setNamePic();
    void setCamName();
    void putFrame(Mat);
-   void putFrame2(Mat);
    Mat getOldFrame();
    Mat getOldFrame2();
    bool incIterator();
